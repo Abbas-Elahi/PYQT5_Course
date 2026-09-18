@@ -323,13 +323,15 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-
+        ###########################################################
         self.pushButton.clicked.connect(lambda: self.check_print())
+        ##########################################################
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.pushButton.setText(_translate("Form", "Print"))
+        ############################################################
 
     def check_print(self):
         if self.lineEdit.text() != "":
@@ -337,6 +339,7 @@ class Ui_Form(object):
             self.label.setText(let)
         else:
             self.label.setText("")
+        ############################################################
 
 
 if __name__ == "__main__":
