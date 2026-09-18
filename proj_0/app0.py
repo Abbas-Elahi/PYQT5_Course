@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import *
 
+
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
@@ -323,15 +324,24 @@ class Ui_Form(object):
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        self.pushButton.clicked.connect(lambda: self.check_print())
+
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.pushButton.setText(_translate("Form", "Print"))
 
     def check_print(self):
+        if self.lineEdit.text() != "":
+            let = self.lineEdit.text()
+            self.label.setText(let)
+        else:
+            self.label.setText("")
+
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Form()
